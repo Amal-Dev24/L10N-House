@@ -131,11 +131,14 @@ a {
   font-weight: 300;
 }
 .popup[data-popup-name=popupVideo] {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   display: none;
 }
+.popup[data-popup-name=popupVideo] .box {
+      width: 50%;
+      transform: translate(-50%, -50%);
+      top: 50%;
+      left: 50%;
+  }
 @media (max-width: 1300px) {
   .popup[data-popup-name=popupVideo] .box {
     width: 90%;
@@ -156,11 +159,9 @@ a {
     width: 50%;
   }
 }
-@media (max-width: 1300px) {
   .popup[data-popup-name=popupVideo] iframe {
     width: 100%;
   }
-}
 .popup[data-popup-name=sectors] {
   display: flex;
   justify-content: center;
