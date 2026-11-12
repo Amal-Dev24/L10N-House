@@ -1,0 +1,67 @@
+@use "../abstracts/index" as *;
+
+#Why_Us {
+
+    .item {
+        background-color: $secondColor;
+        @include distance(350px, 450px);
+        @include center();
+        border-radius: 15px;
+
+        @include respond(350) {
+            @include distance(280px, 450px);
+        }
+
+
+        .box {
+            background-image: url(./../../../imagesL10House/best.jpg);
+
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            @include center(flex-end, flex-start);
+            flex-direction: column;
+            color: #FFF;
+            position: relative;
+            transition-duration: 0.5s;
+            border-radius: 15px;
+
+
+            &::before {
+                @include create(100%, 100%);
+                @include position($t: 0, $l: 0);
+                background: linear-gradient(0deg, #1e2022 0%, transparent 75%);
+                border-radius: 15px;
+            }
+
+            .content {
+                position: relative;
+
+                p {
+                    color: #FFF;
+                }
+            }
+        }
+
+        &:hover {
+            .box {
+                transform: translate(-10px, 10px);
+            }
+        }
+    }
+
+    .part2 {
+        .box {
+            background-image: url(./../../../imagesL10House/solutions.jpg);
+            background-position: center;
+            background-size: cover;
+        }
+    }
+
+    .part3 {
+        .box {
+            background-image: url(./../../../imagesL10House/teamwork.jpg);
+            background-position: center;
+        }
+    }
+}

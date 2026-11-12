@@ -1,0 +1,125 @@
+@use "../abstracts/index" as *;
+
+nav.navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition-duration: 0.5s;
+
+    .navbar-brand {
+        width: 10%;
+        transition-duration: 0.5s;
+
+        @include respond(350) {
+            width: 30%;
+        }
+
+        @include respond(650) {
+            width: 20%;
+        }
+
+        @include respond(850) {
+            width: 18%;
+        }
+
+        @include respond(1050) {
+            width: 15%;
+        }
+
+
+
+
+
+    }
+
+    button {
+        outline: 2px solid $firstColor;
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    .navbar-collapse {
+        text-align: center;
+
+        ul {
+
+            @include respond(350) {
+                height: fit-content;
+                background-color: #fff;
+                padding: 10px 0px;
+                border-radius: 10px;
+                box-shadow: #00000029 0 10px 36px, #0000000f 0 0 0 1px;
+            }
+
+            @include respond(1050) {
+                column-gap: 15px;
+                height: unset;
+                background-color: unset;
+                padding: unset;
+                border-radius: unset;
+                box-shadow: unset;
+            }
+        }
+    }
+
+    .nav-link {
+        color: $firstColor;
+        font-weight: 500;
+        position: relative;
+
+        &.active {
+            color: $firstColor;
+        }
+
+        &::after {
+            @include create($w: 0%, $h: 2px);
+
+            background-color: $secondColor;
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translate(-50%, 5px);
+            transition-duration: 0.5s;
+        }
+
+        &:hover::after {
+            @include create($w: 100%, $h: 2px);
+
+        }
+
+        &.active::after {
+            @include create($w: 100%, $h: 2px);
+
+        }
+    }
+
+    &.scrolled {
+        background-color: rgba(255, 255, 255, 0.9);
+
+        .navbar-brand {
+            width: 8%;
+
+            @include respond(350) {
+                width: 25%;
+            }
+
+            @include respond(650) {
+                width: 18%;
+            }
+
+            @include respond(850) {
+                width: 15%;
+            }
+
+            @include respond(1050) {
+                width: 10%;
+            }
+
+        }
+    }
+
+}

@@ -1,0 +1,87 @@
+@use "../abstracts/index" as *;
+
+#Language_Sectors {
+
+
+    .part1 {
+        background-image: url(../imagesL10House/youth.jpg);
+        background-position: center;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        @include position($p: relative);
+        @include center();
+        row-gap: 15px;
+        flex-direction: column;
+
+        &::after {
+            @include create();
+            @include position();
+            background: radial-gradient(rgb(104, 183, 3), rgb(48, 93, 0));
+            opacity: 0.8;
+
+        }
+
+        .title {
+            h2 {
+                font-size: 50px;
+
+                @include respond(350) {
+                    font-size: 25px;
+                }
+
+                @include respond(650) {
+                    font-size: 35;
+                }
+
+                @include respond(850) {
+                    font-size: 40px;
+                }
+
+                @include respond(1050) {
+                    font-size: 50px;
+                }
+            }
+
+            &::after {
+                background-color: #FFF;
+            }
+        }
+
+        .buttons {
+
+            button {
+
+                transition-duration: 1s;
+                color: $secondColor;
+                background-color: #fff;
+
+                &:hover {
+                    transform: translateY(-10px);
+
+                }
+            }
+        }
+    }
+
+    .part2 {
+        img {
+            width: 75%;
+            margin: auto;
+        }
+
+        .owl-dots {
+            .owl-dot {
+                span {
+                    background-color: $secondColor;
+                    opacity: 0.5;
+                    transition-duration: 0.5s;
+                }
+
+                &.active span {
+                    opacity: 1;
+                }
+            }
+        }
+
+    }
+}

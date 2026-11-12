@@ -1,0 +1,170 @@
+@use "../abstracts/index" as *;
+
+
+#Contact_Us {
+    background-image: url('../imagesL10House/contact-bg.png');
+    background-size: cover;
+    background-position: center;
+    padding: 80px 0;
+    position: relative;
+
+    &::before {
+        @include create();
+        @include position($t: 0, $l: 0);
+        background: radial-gradient(rgb(104, 183, 3), rgb(48, 93, 0));
+        opacity: 0.8;
+    }
+
+    p {
+        @include respond(350) {
+            font-size: 16px;
+        }
+
+        @include respond(650) {
+            font-size: 18;
+        }
+
+        @include respond(850) {
+            font-size: 20px;
+        }
+    }
+
+
+
+    .contactFormBox,
+    .contactBox {
+        border-radius: 8px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+        @include respond(350) {
+            width: 95%;
+            margin-inline: auto;
+        }
+
+        @include respond(650) {
+            width: 70%;
+        }
+
+        @include respond(850) {
+            width: 100%;
+
+        }
+
+
+
+        .formControl {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            font-size: 14px;
+            border-radius: 4px;
+
+            &:focus {
+                box-shadow: none;
+                border-color: $secondColor;
+            }
+
+
+        }
+
+        textarea {
+            resize: none;
+            height: 150px;
+        }
+
+        button[type="submit"] {
+            width: 200px;
+            background-color: $secondColor;
+            border: none;
+            padding: 12px;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
+
+            &:hover {
+                background-color: $secondColor;
+            }
+        }
+    }
+
+    .contactBox {
+        .icon {
+            i {
+                font-size: 20px;
+            }
+        }
+
+        h5 {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        p {
+
+
+            @include respond(850) {
+                font-size: 16px;
+            }
+
+
+        }
+
+        .socialIcons {
+            @include center($jc: flex-start);
+            flex-direction: row;
+            column-gap: 10px;
+
+            a {
+                width: 35px;
+                height: 35px;
+                @include center();
+                font-size: 16px;
+                color: #fff;
+                border-radius: 50%;
+                text-decoration: none;
+                margin-right: 8px;
+                transition: opacity 0.3s ease;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &:nth-of-type(1) {
+                    background-color: #3b5998;
+                }
+
+                &:nth-of-type(2) {
+                    background-color: #e1306c;
+                }
+
+                &:nth-of-type(3) {
+                    background-color: #ff0000;
+                }
+            }
+        }
+    }
+}
+
+footer {
+    background-color: #333333;
+    text-align: center;
+
+    p {
+        margin-bottom: 0;
+    }
+}
+
+.loadingPage {
+    @include position($p: fixed, $t: 0, $l: 0);
+    @include distance(100%, 100%);
+    background-color: #ffffff;
+    @include center();
+    z-index: 10000;
+    transition-duration: 1s;
+
+    .image {
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+    }
+}

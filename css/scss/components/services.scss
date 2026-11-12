@@ -1,0 +1,91 @@
+@use "../abstracts/index" as *;
+
+#Services {
+
+
+    .card {
+        background-color: transparent;
+        border: none;
+        transition-duration: 0.5s;
+        @include center();
+        row-gap: 10px;
+
+        &:hover {
+            background-color: #FFF;
+            box-shadow: 0 20px 50px #00000080;
+            transform: translateY(-10px);
+        }
+
+        img {
+            width: 50px;
+        }
+
+        p {
+            width: 70%;
+            margin-inline: auto;
+
+            @include respond(350) {
+                width: 80%;
+            }
+
+            @include respond(650) {
+                width: 70%;
+            }
+
+            @include respond(850) {
+                width: 90%;
+            }
+
+            @include respond(1050) {
+                width: 80%;
+            }
+        }
+    }
+}
+
+.videoSec {
+
+    background-image: url(../imagesL10House/video-bg.jpg);
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    @include position($p: relative);
+    @include center();
+    row-gap: 15px;
+    flex-direction: column;
+
+    &::after {
+        @include create();
+        @include position();
+        background: radial-gradient(rgb(104, 183, 3), rgb(48, 93, 0));
+        opacity: 0.8;
+    }
+
+    .title {
+
+
+        &::after {
+            background-color: #FFF;
+        }
+    }
+
+    i {
+
+        color: #FFF;
+        font-size: 70px;
+        transition-duration: 0.5s;
+
+        @include respond(350) {
+            font-size: 50px;
+        }
+
+        @include respond(650) {
+            font-size: 70px;
+        }
+
+        &:hover {
+
+            transform: scale(1.2);
+        }
+    }
+}

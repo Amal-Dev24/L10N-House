@@ -1,0 +1,308 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+body {
+    background: linear-gradient(to right, rgb(238, 242, 243), rgb(142, 158, 171));
+    font-family: "Blinker", sans-serif;
+    overflow-x: hidden;
+}
+
+nav li,
+h5,
+h6,
+h4,
+h3,
+h2,
+h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+p {
+    color: #555;
+}
+
+.firstColor {
+    color: $firstColor;
+}
+
+.secondColor {
+    color: $secondColor;
+}
+
+.title {
+
+    margin: auto;
+    width: fit-content;
+    @include position($p: relative);
+
+    h2 {
+        @include respond(350) {
+            font-size: 30px;
+        }
+
+        @include respond(650) {
+            font-size: 35;
+        }
+
+        @include respond(850) {
+            font-size: 40px;
+        }
+
+        @include respond(1050) {
+            font-size: 50px;
+        }
+    }
+
+    &::after {
+        @include create(30%, 3px);
+        background-color: $secondColor;
+        @include position($p: absolute, $b: -10px, $l: 50%);
+        transform: translateX(-50%);
+        border-radius: 10px;
+        transition-duration: 0.5s;
+    }
+
+    &:hover {
+        &::after {
+            @include create(70%, 3px);
+        }
+    }
+}
+
+
+#Contact_Us {
+    .title {
+        &::after {
+            background-color: #FFF;
+        }
+    }
+}
+
+a {
+    cursor: pointer;
+}
+
+.popup {
+    display: none;
+    @include position($p: fixed, $t: 0, $l: 0, $z: 1000);
+    background-color: rgba(0, 0, 0, 0.7);
+    @include distance($w: 100%, $h: 100%);
+    padding-block: 25px;
+    overflow: auto;
+
+
+    .box {
+        background-color: #FFF;
+        width: 75%;
+        margin-inline: auto;
+        border-radius: 15px;
+
+        .head {
+            @include position($p: relative);
+            border-bottom: 1px solid #000;
+
+            i {
+                @include position($p: absolute, $t: 15px, $r: 15px);
+                font-size: 14px;
+                cursor: pointer;
+            }
+        }
+
+        .body {
+            section {
+                ol {
+                    li {
+                        &::marker {
+                            color: $secondColor;
+                            font-weight: 300;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-popup-name="popupVideo"] {
+        @include center();
+        display: none;
+
+        .box {
+            @include respond(350) {
+                width: 90%;
+
+            }
+
+            @include respond(650) {
+
+                width: 80%;
+            }
+
+            @include respond(850) {
+
+                width: 70%;
+            }
+
+            @include respond(1050) {
+                width: 50%;
+            }
+        }
+
+        iframe {
+            @include respond(350) {
+                width: 100%;
+
+            }
+        }
+    }
+
+
+
+    &[data-popup-name="sectors"] {
+        @include center();
+        display: none;
+
+        .item {
+            background-color: #ebfbee;
+            display: flex;
+            flex-direction: column;
+            @include center();
+            row-gap: 15px;
+
+            img {
+                width: 75px;
+                border-radius: 50%;
+
+
+            }
+
+            p {
+                width: 100%;
+                background-color: #dfeee2;
+                text-align: center;
+                font-size: 12px;
+                color: #000;
+            }
+        }
+    }
+
+    &[data-popup-name="languages"] {
+
+        overflow-x: hidden;
+
+        #box.box {
+            position: relative;
+            @include position($t: 0, $r: 0);
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            margin: auto;
+            width: 30%;
+            transform: translateX(100%);
+            transition-duration: 0.5s;
+
+            @include respond(350) {
+                width: 70%;
+
+            }
+
+            @include respond(650) {
+                width: 50%;
+
+            }
+
+            @include respond(850) {
+                width: 40%;
+
+            }
+
+            @include respond(1050) {
+                width: 30%;
+
+            }
+
+
+            &.show {
+                transform: translateX(0%);
+            }
+
+            &>i {
+                @include position($p: absolute, $t: 15px, $r: 15px);
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            h5 {
+                margin-bottom: 0px;
+            }
+
+            span {
+                display: inline-block;
+                width: 100px;
+                height: 3px;
+
+            }
+
+            .section:nth-of-type(odd) {
+                h5 {
+                    color: $firstColor;
+                }
+
+                span {
+                    background-color: $firstColor ;
+                }
+
+                i {
+                    color: $firstColor;
+                }
+            }
+
+            .section:nth-of-type(even) {
+                h5 {
+                    color: $secondColor;
+                }
+
+                span {
+                    background-color: $secondColor ;
+                }
+
+                i {
+                    color: $secondColor;
+                }
+            }
+
+        }
+    }
+}
+
+
+.scroll {
+    @include position($p: fixed, $t: 50%, $r: 0);
+    transform: translate(70%, -50%);
+    @include center(space-between, center);
+    background-color: $firstColor;
+    color: #ffffff;
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-decoration: none;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.15);
+    z-index: 1000;
+    transition-duration: 1s;
+
+    .text {
+        font-size: 14px;
+        font-weight: 600;
+        white-space: nowrap;
+        margin-right: 12px;
+    }
+
+    i {
+        font-size: 16px;
+        min-width: 20px;
+        text-align: center;
+    }
+
+    &:hover {
+        transform: translateY(-50%) translateX(0%);
+
+    }
+}

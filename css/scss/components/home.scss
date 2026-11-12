@@ -1,0 +1,169 @@
+@use "../abstracts/index" as *;
+
+#Home {
+    height: 100vh;
+    @include position($p: relative);
+
+    .part1 {
+        @include center(flex-start);
+        transform: translateY(0%);
+
+        @include respond(350) {
+            transform: translateY(-18%);
+        }
+
+        @include respond(650) {
+            transform: translateY(0%);
+        }
+
+
+        h1 {
+            color: $firstColor;
+            font-size: 60px;
+
+            @include respond(350) {
+                font-size: 30px;
+            }
+
+            @include respond(650) {
+                font-size: 35;
+            }
+
+            @include respond(850) {
+                font-size: 40px;
+            }
+
+            @include respond(1050) {
+                font-size: 50px;
+            }
+
+        }
+
+        .video {
+            align-items: center;
+
+            a {
+                background-color: transparent;
+                cursor: pointer;
+                @include distance(40px, 40px);
+                border-radius: 50%;
+                @include center();
+                @include position($p: relative);
+
+                &::before {
+                    @include create(0%, 0%);
+                    border-radius: 50%;
+                    background-color: $firstColor ;
+                    @include position($p: absolute, $t: 50%, $l: 50%);
+                    transition-duration: 0.5s;
+                    transform: translate(-50%, -50%);
+
+                }
+
+                i {
+                    color: $firstColor;
+                    @include position($p: relative);
+                }
+
+                &:hover {
+                    &::before {
+                        @include create(100%, 100%);
+                    }
+
+                    i {
+                        color: #FFF;
+                    }
+
+                }
+
+                p {
+                    color: black;
+
+                }
+            }
+
+        }
+
+    }
+
+    #headLine {
+        margin: 0;
+
+        .cd-headline {
+            font-size: 20px;
+            color: $secondColor;
+            text-align: left;
+            font-weight: 600;
+
+            .cd-words-wrapper::after {
+                background-color: $secondColor;
+            }
+        }
+
+    }
+
+    .part2 {
+        @include center();
+
+        .item {
+            @include center();
+
+            img {
+                @include respond(350) {
+                    transform: translateY(-200%);
+                    width: 80%;
+                }
+
+                @include respond(450) {
+                    transform: translateY(-160%);
+                }
+
+                @include respond(850) {
+                    transform: translateY(0%);
+                    width: 100%;
+                }
+
+                @include respond(1050) {
+                    transform: translateY();
+                }
+            }
+        }
+    }
+
+    .arrows {
+
+        @include position($b: 15%, $l: 50%, $z: 2);
+        transform: translateX(-50%);
+
+        img:not(:first-child) {
+            @include position($t: 0, $l: 0)
+        }
+
+        img {
+            @include distance($w: 25px, $h: 25px);
+
+            @for $i from 1 through 3 {
+                &:nth-of-type(#{$i}) {
+                    animation: animate#{$i} 2s infinite;
+                    transform: translateY(0px);
+                }
+            }
+
+
+            &:nth-of-type(2) {
+                transform: translateY(20px);
+            }
+
+            &:nth-of-type(3) {
+                transform: translateY(40px);
+            }
+        }
+
+    }
+
+    >img {
+        @include position($b: 0, $l: 0);
+        transform: rotate(180deg);
+        width: 100%;
+    }
+}
