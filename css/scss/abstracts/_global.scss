@@ -123,10 +123,14 @@ a {
     }
 
     &[data-popup-name="popupVideo"] {
-        @include center();
         display: none;
 
         .box {
+
+            width: 50%;
+            @include position($t: 50%, $l: 50%);
+            transform: translate(-50%, -50%);
+            
             @include respond(350) {
                 width: 90%;
 
@@ -148,10 +152,10 @@ a {
         }
 
         iframe {
-            @include respond(350) {
+            
                 width: 100%;
 
-            }
+            
         }
     }
 
