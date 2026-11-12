@@ -808,7 +808,7 @@ nav.navbar.scrolled .navbar-brand {
   }
 }
 #Why_Us .item .box {
-  background-image: url(./../../../imagesL10House/best.jpg);
+  background-image: url(../imagesL10House/best.jpg);
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
@@ -845,12 +845,12 @@ nav.navbar.scrolled .navbar-brand {
   transform: translate(-10px, 10px);
 }
 #Why_Us .part2 .box {
-  background-image: url(./../../../imagesL10House/solutions.jpg);
+  background-image: url(../imagesL10House/solutions.jpg);
   background-position: center;
   background-size: cover;
 }
 #Why_Us .part3 .box {
-  background-image: url(./../../../imagesL10House/teamwork.jpg);
+  background-image: url(../imagesL10House/teamwork.jpg);
   background-position: center;
 }
 
